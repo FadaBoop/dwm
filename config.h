@@ -9,18 +9,18 @@ static const unsigned int maxWTab 			= 0;	/* tab menu width */
 static const unsigned int maxHTab 			= 0;	/* tab menu height */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 10;        /* gaps between windows */
-static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
-static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
-static const unsigned int systrayspacing = 2;   /* systray spacing */
-static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
-static const int showsystray        = 1;        /* 0 means no systray */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const int splitstatus        = 1;        /* 1 for split status items */
-static const char *splitdelim       = ";";      /* Character used for separating statsu */
+static const unsigned int borderpx          = 1;        /* border pixel of windows */
+static const unsigned int gappx             = 10;        /* gaps between windows */
+static const unsigned int snap              = 32;       /* snap pixel */
+static const unsigned int systraypinning    = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systrayonleft     = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
+static const unsigned int systrayspacing    = 2;   /* systray spacing */
+static const int systraypinningfailfirst    = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const int showsystray                = 1;        /* 0 means no systray */
+static const int showbar                    = 1;        /* 0 means no bar */
+static const int topbar                     = 1;        /* 0 means bottom bar */
+static const int splitstatus                = 1;        /* 1 for split status items */
+static const char *splitdelim               = ";";      /* Character used for separating statsu */
 
 #include <X11/XF86keysym.h>
 
@@ -33,8 +33,8 @@ static const char col_gray2[]       = "#a8856c";
 static const char col_gray4[]       = "#f1be9b"; 
 static const char col_cyan[]        = "#63576E";
 
-static const unsigned int baralpha = 140;
-static const unsigned int borderalpha = 140;
+static const unsigned int baralpha      = 140;
+static const unsigned int borderalpha   = 140;
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -93,9 +93,9 @@ static const char *termcmd[]  = { "kitty", NULL };
 static const char *flame[] = { "flameshot", "gui", NULL};
 static const char *dolphin[] = { "dolphin", NULL};
 static const char *chrome[] = { "google-chrome-stable", NULL};
-static const char *upvol[]      = { "/usr/bin/wpctl",   "set-volume", "49",      "5%+",      NULL };
-static const char *downvol[]    = { "/usr/bin/wpctl",   "set-volume", "49",      "5%-",      NULL };
-static const char *mutevol[]    = { "/usr/bin/wpctl",   "set-mute",   "49",      "toggle",   NULL };
+static const char *upvol[]      = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%+",      NULL };
+static const char *downvol[]    = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%-",      NULL };
+static const char *mutevol[]    = { "/usr/bin/wpctl",   "set-mute",   "@DEFAULT_AUDIO_SINK@",      "toggle",   NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
