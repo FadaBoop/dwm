@@ -22,6 +22,8 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int splitstatus        = 1;        /* 1 for split status items */
 static const char *splitdelim       = ";";      /* Character used for separating statsu */
 
+#include <X11/XF86keysym.h>
+
 static const char *fonts[]          = { "monospace:size=12" };
 static const char dmenufont[]       = "monospace:size=12";
 
@@ -91,6 +93,9 @@ static const char *termcmd[]  = { "kitty", NULL };
 static const char *flame[] = { "flameshot", "gui", NULL};
 static const char *dolphin[] = { "dolphin", NULL};
 static const char *chrome[] = { "google-chrome-stable", NULL};
+static const char *upvol[]      = { "/usr/bin/wpctl",   "set-volume", "49",      "5%+",      NULL };
+static const char *downvol[]    = { "/usr/bin/wpctl",   "set-volume", "49",      "5%-",      NULL };
+static const char *mutevol[]    = { "/usr/bin/wpctl",   "set-mute",   "49",      "toggle",   NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -98,6 +103,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_t,      spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = dolphin} },
 	{ MODKEY,                       XK_f,      spawn,          {.v = chrome} },
+	{ MODKEY,                       XK_F1,     spawn,          {.v = mutevol} },
+	{ MODKEY,                       XK_F2,     spawn,          {.v = downvol} },
+	{ MODKEY,                       XK_F3,     spawn,          {.v = upvol} },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = flame} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_s,      view,           {0} },
