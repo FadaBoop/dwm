@@ -88,14 +88,15 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "kitty", NULL };
-static const char *flame[] = { "flameshot", "gui", NULL};
-static const char *dolphin[] = { "dolphin", NULL};
-static const char *chrome[] = { "google-chrome-stable", NULL};
+static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *termcmd[]    = { "kitty", NULL };
+static const char *flame[]      = { "flameshot", "gui", NULL};
+static const char *dolphin[]    = { "dolphin", NULL};
+static const char *chrome[]     = { "google-chrome-stable", NULL};
 static const char *upvol[]      = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%+",      NULL };
 static const char *downvol[]    = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%-",      NULL };
 static const char *mutevol[]    = { "/usr/bin/wpctl",   "set-mute",   "@DEFAULT_AUDIO_SINK@",      "toggle",   NULL };
+static const char *feh[]        = { "/usr/bin/33", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -103,10 +104,13 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_t,      spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = dolphin} },
 	{ MODKEY,                       XK_f,      spawn,          {.v = chrome} },
+	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = feh} },
 	{ MODKEY,                       XK_F1,     spawn,          {.v = mutevol} },
 	{ MODKEY,                       XK_F2,     spawn,          {.v = downvol} },
 	{ MODKEY,                       XK_F3,     spawn,          {.v = upvol} },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = flame} },
+    { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_s,      view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
